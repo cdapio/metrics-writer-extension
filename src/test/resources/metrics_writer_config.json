@@ -1,0 +1,153 @@
+{
+  "mapping": {
+    "program.completed.runs": {
+      "metricType": "datafusion.googleapis.com/odf_pipeline/runs_completed_count",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ],
+
+      "metricLabels": [
+        {"label": "complete_state", "value": "completed", "valueIsTag": false}
+      ],
+
+      "tagFilters": [
+        {"tag": "prg", "values": "DataPipelineWorkflow,DataStreamsSparkStreaming"}
+      ]
+    },
+    "program.failed.runs": {
+      "metricType": "datafusion.googleapis.com/odf_pipeline/runs_completed_count",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ],
+
+      "metricLabels": [
+        {"label": "complete_state", "value": "failed", "valueIsTag": false}
+      ],
+
+      "tagFilters": [
+        {"tag": "prg", "values": "DataPipelineWorkflow,DataStreamsSparkStreaming"}
+      ]
+    },
+    "program.killed.runs": {
+      "metricType": "datafusion.googleapis.com/pipeline/runs_completed_count",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ],
+
+      "metricLabels": [
+        {"label": "complete_state", "value": "killed", "valueIsTag": false}
+      ],
+
+      "tagFilters": [
+        {"tag": "prg", "values": "DataPipelineWorkflow,DataStreamsSparkStreaming"}
+      ]
+    },
+    "response.successful": {
+      "metricType": "datafusion.googleapis.com/odf_instance/api_request_count",
+      "resourceType": "datafusion.googleapis.com/ODFInstance",
+
+      "resourceLabels": [
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id", "version"
+      ],
+
+      "metricLabels": [
+        {"label": "service", "value": "cmp", "valueIsTag": true},
+        {"label": "handler", "value": "hnd", "valueIsTag": true},
+        {"label": "method", "value": "mtd", "valueIsTag": true},
+        {"label": "response_code", "value": "200", "valueIsTag": false}
+      ]
+    },
+    "program.provisioning.delay.seconds": {
+      "metricType": "datafusion.googleapis.com/odf_pipeline/provisioner/provisioning_latency",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ],
+
+      "metricLabels": [
+        {"label": "provisioner", "value": "prv", "valueIsTag": true}
+      ],
+
+      "tagFilters": [
+        {"tag": "prv", "values": "gcp-dataproc"}
+      ]
+    },
+    "program.run.seconds": {
+      "metricType": "datafusion.googleapis.com/odf_pipeline/pipeline_run_time",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ],
+
+      "metricLabels": [
+        {"label": "complete_state", "value": "st", "valueIsTag": true}
+      ]
+    },
+    "preview.run.seconds": {
+      "metricType": "datafusion.googleapis.com/odf_pipeline/preview_run_time",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ],
+
+      "metricLabels": [
+        {"label": "complete_state", "value": "st", "valueIsTag": true}
+      ]
+    },
+    "application.plugin.count": {
+      "metricType": "datafusion.googleapis.com/odf_pipeline/plugin_count",
+      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "aggregation": "MEAN",
+      "resourceLabels": [
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
+        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+      ]
+    }
+  }
+}
