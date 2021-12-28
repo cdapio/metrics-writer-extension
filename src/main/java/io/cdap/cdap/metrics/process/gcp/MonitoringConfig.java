@@ -28,8 +28,7 @@ import java.util.Map;
  *       "metricType": "datafusion.googleapis.com/odf_pipeline/runs_completed_count",
  *       "resourceType": "datafusion.googleapis.com/ODFPipeline",
  *       "resourceLabels": [
- *         {"label": "pipeline_id", "value": "app", "valueIsTag": true},
- *         {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+ *         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
  *       ],
  *       "autoFillLabels":  [
  *         "resource_container", "org_id", "location", "anthos_cluster", "instance_id"

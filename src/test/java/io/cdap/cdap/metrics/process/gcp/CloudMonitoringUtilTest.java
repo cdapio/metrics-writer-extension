@@ -115,7 +115,6 @@ public class CloudMonitoringUtilTest {
     metricLabels.put("complete_state", "completed");
 
     Map<String, String> resourceLabels = new HashMap<>();
-    resourceLabels.put("compute_engine", "N/A");
     resourceLabels.put("pipeline_id", "test-pipeline-1");
 
     return new TimeSeriesMetadata(METRIC_TYPE, RESOURCE_TYPE, metricLabels, resourceLabels, type, aggregationType);

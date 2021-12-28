@@ -21,8 +21,7 @@ package io.cdap.cdap.metrics.process.gcp;
  * details of value collection from a CDAP metric tag.
  * Some examples below.
  * {"label": "complete_state", "value": "completed", "valueIsTag": false}
- * {"label": "pipeline_id", "value": "app", "valueIsTag": true},
- * {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+ * {"label": "pipeline_id", "value": "app", "valueIsTag": true}
  */
 public class LabelMapping {
 

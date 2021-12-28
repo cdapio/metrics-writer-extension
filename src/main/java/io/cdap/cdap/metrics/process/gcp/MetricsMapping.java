@@ -29,8 +29,7 @@ import javax.annotation.Nullable;
  * "resourceType": "datafusion.googleapis.com/ODFPipeline",
  * <p>
  * "resourceLabels": [
- * {"label": "pipeline_id", "value": "app", "valueIsTag": true},
- * {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+ * {"label": "pipeline_id", "value": "app", "valueIsTag": true}
  * ],
  * <p>
  * "autoFillLabels":  [
