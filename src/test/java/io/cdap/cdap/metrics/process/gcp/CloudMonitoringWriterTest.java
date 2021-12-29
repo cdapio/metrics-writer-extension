@@ -46,7 +46,7 @@ public class CloudMonitoringWriterTest {
                         monitoringConfig.getMetricsMapping().get(cdapMetricName).getMetricType());
     Assert.assertEquals(1,
                         monitoringConfig.getMetricsMapping().get(cdapMetricName).getMetricLabels().size());
-    Assert.assertEquals(2,
+    Assert.assertEquals(1,
                         monitoringConfig.getMetricsMapping().get(cdapMetricName).getResourceLabels().size());
     Assert.assertEquals(5,
                         monitoringConfig.getMetricsMapping().get(cdapMetricName).getAutoFillLabels().size());
@@ -106,7 +106,7 @@ public class CloudMonitoringWriterTest {
     //Random value for test
     String testValue = UUID.randomUUID().toString();
     Map<String, String> tags = ImmutableMap.of("app", testValue);
-    Map<String, String> expected = ImmutableMap.of("compute_engine", "N/A", "pipeline_id", testValue);
+    Map<String, String> expected = ImmutableMap.of("pipeline_id", testValue);
     Map<String, String> actual = metricsWriter.getLabels(metricsMapping.getResourceLabels(), tags);
     Assert.assertEquals(expected, actual);
   }

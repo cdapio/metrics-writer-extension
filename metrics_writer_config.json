@@ -5,8 +5,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
 
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
@@ -26,8 +25,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
 
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
@@ -47,8 +45,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
 
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
@@ -86,8 +83,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
 
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
@@ -107,8 +103,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
 
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
@@ -124,8 +119,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
 
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
@@ -141,8 +135,7 @@
       "resourceType": "datafusion.googleapis.com/ODFPipeline",
       "aggregation": "MEAN",
       "resourceLabels": [
-        {"label": "pipeline_id", "value": "app", "valueIsTag": true},
-        {"label": "compute_engine", "value": "N/A", "valueIsTag": false}
+        {"label": "pipeline_id", "value": "app", "valueIsTag": true}
       ],
 
       "autoFillLabels":  [
