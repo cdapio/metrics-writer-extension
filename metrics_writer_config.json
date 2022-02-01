@@ -141,6 +141,66 @@
       "autoFillLabels":  [
         "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
       ]
+    },
+    "jvm.resource.system.load.per.processor.scaled": {
+      "metricType": "datafusion.googleapis.com/odf_instance/cpu_load_per_processor_scaled",
+      "resourceType": "datafusion.googleapis.com/ODFInstance",
+      "aggregation": "MEAN",
+      "resourceLabels": [
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id", "version"
+      ],
+      "metricLabels": [
+        {"label": "component", "value": "cmp", "valueIsTag": true},
+        {"label": "namespace", "value": "ns", "valueIsTag": true}
+      ]
+    },
+    "jvm.resource.heap.max.mb": {
+      "metricType": "datafusion.googleapis.com/odf_instance/heap_memory_max",
+      "resourceType": "datafusion.googleapis.com/ODFInstance",
+      "aggregation": "MEAN",
+      "resourceLabels": [
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id", "version"
+      ],
+      "metricLabels": [
+        {"label": "component", "value": "cmp", "valueIsTag": true},
+        {"label": "namespace", "value": "ns", "valueIsTag": true}
+      ]
+    },
+    "jvm.resource.heap.used.mb": {
+      "metricType": "datafusion.googleapis.com/odf_instance/heap_memory_used",
+      "resourceType": "datafusion.googleapis.com/ODFInstance",
+      "aggregation": "MEAN",
+      "resourceLabels": [
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id", "version"
+      ],
+      "metricLabels": [
+        {"label": "component", "value": "cmp", "valueIsTag": true},
+        {"label": "namespace", "value": "ns", "valueIsTag": true}
+      ]
+    },
+    "jvm.resource.thread.count": {
+      "metricType": "datafusion.googleapis.com/odf_instance/total_thread_count",
+      "resourceType": "datafusion.googleapis.com/ODFInstance",
+      "aggregation": "MEAN",
+      "resourceLabels": [
+      ],
+
+      "autoFillLabels":  [
+        "resource_container", "org_id", "location", "anthos_cluster", "instance_id", "version"
+      ],
+      "metricLabels": [
+        {"label": "component", "value": "cmp", "valueIsTag": true},
+        {"label": "namespace", "value": "ns", "valueIsTag": true}
+      ]
     }
   }
 }
