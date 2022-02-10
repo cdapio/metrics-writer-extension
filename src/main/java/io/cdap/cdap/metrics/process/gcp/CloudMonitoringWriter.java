@@ -56,7 +56,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
   private static final String ANTHOS_CLUSTER = "anthos_cluster";
   private static final String INSTANCE_ID = "instance_id";
   private static final String VERSION = "version";
-  private static final String POLL_FREQUENCY_SECONDS = "poll.frequency.seconds";
+  private static final String WRITE_FREQUENCY_SECONDS = "write.frequency.seconds";
   private static final String MONITORING_ENDPOINT = "monitoring.endpoint";
   private static final String CONFIG_FILE_PATH = "config.file.path";
   private static final String WRITER_NAME = "google_cloud_monitoring_writer";
@@ -120,7 +120,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
     MonitoringConfig config = getConfig(metricsWriterContext.getProperties().get(CONFIG_FILE_PATH));
     this.metricsMapping = config.getMetricsMapping();
     this.projectName = metricsWriterContext.getProperties().get(PROJECT);
-    this.pollFreqInSeconds = Integer.parseInt(metricsWriterContext.getProperties().get(POLL_FREQUENCY_SECONDS));
+    this.pollFreqInSeconds = Integer.parseInt(metricsWriterContext.getProperties().get(WRITE_FREQUENCY_SECONDS));
     populateAutoFilledMap(metricsWriterContext.getProperties());
 
     try {
@@ -143,7 +143,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
     autoFilledLabelMap.put(LOCATION, properties.get(LOCATION));
     autoFilledLabelMap.put(ANTHOS_CLUSTER, properties.get(ANTHOS_CLUSTER));
     autoFilledLabelMap.put(INSTANCE_ID, properties.get(INSTANCE_ID));
-    autoFilledLabelMap.put(VERSION, properties.get(VERSION));
+    autoFilledLabelMap.put(VERSION, properties.get(MetricsWriterContext.CDAP_VERSION));
     LOG.debug("Populated autoFilledLabelMap map {}", autoFilledLabelMap);
   }
 
