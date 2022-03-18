@@ -23,11 +23,15 @@
   <artifactId>cdap-metrics-writer-extensions</artifactId>
   <name>CDAP Metric Writer Extensions</name>
   <version>1.0.0-SNAPSHOT</version>
-  <packaging>jar</packaging>
+  <packaging>pom</packaging>
 
   <properties>
     <cdap.version>6.7.0-SNAPSHOT</cdap.version>
   </properties>
+
+  <modules>
+    <module>cdap-metrics-writer-ext-gcp-monitoring</module>
+  </modules>
 
   <dependencies>
     <dependency>
@@ -35,21 +39,6 @@
       <artifactId>cdap-watchdog-api</artifactId>
       <version>${cdap.version}</version>
       <scope>provided</scope>
-    </dependency>
-    <dependency>
-      <groupId>com.google.cloud</groupId>
-      <artifactId>google-cloud-monitoring</artifactId>
-      <version>3.1.0</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.protobuf</groupId>
-      <artifactId>protobuf-java-util</artifactId>
-      <version>3.19.1</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.guava</groupId>
-      <artifactId>guava</artifactId>
-      <version>31.0.1-jre</version>
     </dependency>
 
     <!-- Test dependencies -->
