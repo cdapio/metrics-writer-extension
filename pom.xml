@@ -22,11 +22,11 @@
   <groupId>io.cdap.cdap</groupId>
   <artifactId>cdap-metrics-writer-extensions</artifactId>
   <name>CDAP Metric Writer Extensions</name>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
-    <cdap.version>6.7.0-SNAPSHOT</cdap.version>
+    <cdap.version>6.8.0-SNAPSHOT</cdap.version>
   </properties>
 
   <modules>
