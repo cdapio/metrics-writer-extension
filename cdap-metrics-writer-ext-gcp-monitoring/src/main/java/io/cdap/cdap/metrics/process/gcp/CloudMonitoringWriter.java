@@ -121,7 +121,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
     this.metricsMapping = config.getMetricsMapping();
     this.projectName = metricsWriterContext.getProperties().get(PROJECT);
     this.pollFreqInSeconds = Integer.parseInt(metricsWriterContext.getProperties().get(WRITE_FREQUENCY_SECONDS));
-    populateAutoFilledMap(metricsWriterContext.getProperties());
+    populateAutoFilledMap(metricsWriterContext.getProperties(), metricsWriterContext.getPlatformVersion());
 
     try {
       String endPoint = metricsWriterContext.getProperties().get(MONITORING_ENDPOINT);
@@ -136,14 +136,14 @@ public class CloudMonitoringWriter implements MetricsWriter {
     }
   }
 
-  private void populateAutoFilledMap(Map<String, String> properties) {
+  private void populateAutoFilledMap(Map<String, String> properties, String platformVersion) {
     autoFilledLabelMap = new HashMap<>();
     autoFilledLabelMap.put(RESOURCE_CONTAINER, properties.get(PROJECT));
     autoFilledLabelMap.put(ORG_ID, properties.get(ORG_ID));
     autoFilledLabelMap.put(LOCATION, properties.get(LOCATION));
     autoFilledLabelMap.put(ANTHOS_CLUSTER, properties.get(ANTHOS_CLUSTER));
     autoFilledLabelMap.put(INSTANCE_ID, properties.get(INSTANCE_ID));
-    autoFilledLabelMap.put(VERSION, properties.get(MetricsWriterContext.CDAP_VERSION));
+    autoFilledLabelMap.put(VERSION, platformVersion);
     LOG.debug("Populated autoFilledLabelMap map {}", autoFilledLabelMap);
   }
 
