@@ -39,8 +39,8 @@ import java.util.Map;
 @PrepareForTest({CloudMonitoringUtil.class, MetricServiceClient.class})
 public class CloudMonitoringUtilTest {
 
-  private static final String METRIC_TYPE = "datafusion.googleapis.com/odf_pipeline/runs_completed_count";
-  private static final String RESOURCE_TYPE = "datafusion.googleapis.com/ODFPipeline";
+  private static final String METRIC_TYPE = "datafusion.googleapis.com/test_pipeline/runs_completed_count";
+  private static final String RESOURCE_TYPE = "datafusion.googleapis.com/TESTPipeline";
 
   @Test
   public void testSend() {
