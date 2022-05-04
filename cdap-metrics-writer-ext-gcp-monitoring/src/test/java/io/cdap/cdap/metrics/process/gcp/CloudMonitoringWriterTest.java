@@ -41,7 +41,7 @@ public class CloudMonitoringWriterTest {
     MonitoringConfig monitoringConfig = new CloudMonitoringWriter().getConfig(TEST_CONFIG_PATH);
     Assert.assertEquals(8, monitoringConfig.getMetricsMapping().size());
     String cdapMetricName = "program.failed.runs";
-    String gcpMetricName = "datafusion.googleapis.com/odf_pipeline/runs_completed_count";
+    String gcpMetricName = "datafusion.googleapis.com/test_pipeline/runs_completed_count";
     Assert.assertEquals(gcpMetricName,
                         monitoringConfig.getMetricsMapping().get(cdapMetricName).getMetricType());
     Assert.assertEquals(1,

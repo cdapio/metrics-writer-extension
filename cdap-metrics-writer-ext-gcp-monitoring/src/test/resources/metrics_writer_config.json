@@ -1,8 +1,8 @@
 {
   "mapping": {
     "program.completed.runs": {
-      "metricType": "datafusion.googleapis.com/odf_pipeline/runs_completed_count",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "metricType": "datafusion.googleapis.com/test_pipeline/runs_completed_count",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
 
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
@@ -21,8 +21,8 @@
       ]
     },
     "program.failed.runs": {
-      "metricType": "datafusion.googleapis.com/odf_pipeline/runs_completed_count",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "metricType": "datafusion.googleapis.com/test_pipeline/runs_completed_count",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
 
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
@@ -42,7 +42,7 @@
     },
     "program.killed.runs": {
       "metricType": "datafusion.googleapis.com/pipeline/runs_completed_count",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
 
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
@@ -61,8 +61,8 @@
       ]
     },
     "response.successful": {
-      "metricType": "datafusion.googleapis.com/odf_instance/api_request_count",
-      "resourceType": "datafusion.googleapis.com/ODFInstance",
+      "metricType": "datafusion.googleapis.com/test_instance/api_request_count",
+      "resourceType": "datafusion.googleapis.com/testInstance",
 
       "resourceLabels": [
       ],
@@ -79,8 +79,8 @@
       ]
     },
     "program.provisioning.delay.seconds": {
-      "metricType": "datafusion.googleapis.com/odf_pipeline/provisioner/provisioning_latency",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "metricType": "datafusion.googleapis.com/test_pipeline/provisioner/provisioning_latency",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
 
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
@@ -99,8 +99,8 @@
       ]
     },
     "program.run.seconds": {
-      "metricType": "datafusion.googleapis.com/odf_pipeline/pipeline_run_time",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "metricType": "datafusion.googleapis.com/test_pipeline/pipeline_run_time",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
 
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
@@ -115,8 +115,8 @@
       ]
     },
     "preview.run.seconds": {
-      "metricType": "datafusion.googleapis.com/odf_pipeline/preview_run_time",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "metricType": "datafusion.googleapis.com/test_pipeline/preview_run_time",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
 
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
@@ -131,8 +131,8 @@
       ]
     },
     "application.plugin.count": {
-      "metricType": "datafusion.googleapis.com/odf_pipeline/plugin_count",
-      "resourceType": "datafusion.googleapis.com/ODFPipeline",
+      "metricType": "datafusion.googleapis.com/test_pipeline/plugin_count",
+      "resourceType": "datafusion.googleapis.com/testPipeline",
       "aggregation": "MEAN",
       "resourceLabels": [
         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
