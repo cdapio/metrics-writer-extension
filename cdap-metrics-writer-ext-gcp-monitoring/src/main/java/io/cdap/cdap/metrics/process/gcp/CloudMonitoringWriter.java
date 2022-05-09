@@ -53,7 +53,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
   private static final String PROJECT = "project";
   private static final String ORG_ID = "org_id";
   private static final String LOCATION = "location";
-  private static final String ANTHOS_CLUSTER = "anthos_cluster";
+  private static final String CLUSTER_ID = "cluster_id";
   private static final String INSTANCE_ID = "instance_id";
   private static final String VERSION = "version";
   private static final String WRITE_FREQUENCY_SECONDS = "write.frequency.seconds";
@@ -141,7 +141,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
     autoFilledLabelMap.put(RESOURCE_CONTAINER, properties.get(PROJECT));
     autoFilledLabelMap.put(ORG_ID, properties.get(ORG_ID));
     autoFilledLabelMap.put(LOCATION, properties.get(LOCATION));
-    autoFilledLabelMap.put(ANTHOS_CLUSTER, properties.get(ANTHOS_CLUSTER));
+    autoFilledLabelMap.put(CLUSTER_ID, properties.get(CLUSTER_ID));
     autoFilledLabelMap.put(INSTANCE_ID, properties.get(INSTANCE_ID));
     autoFilledLabelMap.put(VERSION, platformVersion);
     LOG.debug("Populated autoFilledLabelMap map {}", autoFilledLabelMap);
