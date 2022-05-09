@@ -31,7 +31,7 @@ import java.util.Map;
  *         {"label": "pipeline_id", "value": "app", "valueIsTag": true}
  *       ],
  *       "autoFillLabels":  [
- *         "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+ *         "resource_container", "org_id", "location", "cluster_id", "instance_id"
  *       ],
  *       "metricLabels": [
  *         {"label": "complete_state", "value": "completed", "valueIsTag": false}

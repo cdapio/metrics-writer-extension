@@ -33,7 +33,7 @@ import javax.annotation.Nullable;
  * ],
  * <p>
  * "autoFillLabels":  [
- * "resource_container", "org_id", "location", "anthos_cluster", "instance_id"
+ * "resource_container", "org_id", "location", "cluster_id", "instance_id"
  * ],
  * <p>
  * "metricLabels": [
