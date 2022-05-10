@@ -83,7 +83,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
     Map<TimeSeriesMetadata, List<Long>> timeSeriesMap = createTimeSeriesMap(metricValues);
     long endTimeSeconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
     long startTimeSeconds = (lastEndTime.get() == -1 || lastEndTime.get() == endTimeSeconds) ?
-      endTimeSeconds - pollFreqInSeconds : lastEndTime.get();
+      endTimeSeconds - pollFreqInSeconds : lastEndTime.get() + 1;
     List<TimeSeries> timeSeries = CloudMonitoringUtil.convertToMonitoringTimeSeries(timeSeriesMap,
                                                                                     startTimeSeconds,
                                                                                     endTimeSeconds);
