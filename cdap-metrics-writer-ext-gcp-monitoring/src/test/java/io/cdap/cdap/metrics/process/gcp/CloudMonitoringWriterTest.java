@@ -20,10 +20,13 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import io.cdap.cdap.api.metrics.MetricType;
 import io.cdap.cdap.api.metrics.MetricValue;
+import io.cdap.cdap.api.metrics.MetricsContext;
+import io.cdap.cdap.api.metrics.MetricsWriterContext;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -119,5 +122,32 @@ public class CloudMonitoringWriterTest {
     Map<String, String> expectedLabels = ImmutableMap.of("label1", "value1", "label2", "value2");
     Map<String, String> actualLabels = metricsWriter.getAutoFilledLabels(testLabels, testLabelMap);
     Assert.assertEquals(expectedLabels, actualLabels);
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConfigValidation() {
+    CloudMonitoringWriter metricsWriter = new CloudMonitoringWriter();
+    Map<String, String> properties = new HashMap<>();
+    properties.put("config.file.path",
+                   this.getClass().getClassLoader().getResource("metrics_writer_config.json").getPath());
+    properties.put("project", "test-p");
+    properties.put("org_id", "1000");
+    properties.put("location", "us-east1");
+    //missing cluster_id for testing
+    properties.put("cluster_id", "");
+    properties.put("instance_id", null);
+    properties.put("write.frequency.seconds", "100");
+    MetricsWriterContext testMetricsWriterContext = new MetricsWriterContext() {
+      @Override
+      public Map<String, String> getProperties() {
+        return properties;
+      }
+
+      @Override
+      public MetricsContext getMetricsContext() {
+        return null;
+      }
+    };
+    metricsWriter.initialize(testMetricsWriterContext);
   }
 }
