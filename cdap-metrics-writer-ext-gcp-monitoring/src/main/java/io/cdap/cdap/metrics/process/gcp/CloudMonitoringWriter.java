@@ -131,9 +131,8 @@ public class CloudMonitoringWriter implements MetricsWriter {
           .build();
       metricServiceClient = MetricServiceClient.create(metricServiceSettings);
     } catch (Exception ex) {
-      LOG.error(
-        "Exception while creating MetricServiceClient, Metrics will not be sent to Google Cloud Monitoring. ",
-        ex);
+      throw new RuntimeException(
+        "Exception while creating MetricServiceClient, Metrics will not be sent to Google Cloud Monitoring.", ex);
     }
   }
 
@@ -187,10 +186,10 @@ public class CloudMonitoringWriter implements MetricsWriter {
     try (Reader reader = new FileReader(configFilePath)) {
       return GSON.fromJson(reader, MonitoringConfig.class);
     } catch (Exception ex) {
-      LOG.info(
-        "Exception while loading config from mapping file {}. Metrics will not be sent to Google Cloud Monitoring.",
-        configFilePath, ex);
-      return MonitoringConfig.EMPTY;
+      throw new RuntimeException(
+        "Exception while loading config from mapping file " + configFilePath +
+          ". Metrics will not be sent to Google Cloud Monitoring.",
+        ex);
     }
   }
 
