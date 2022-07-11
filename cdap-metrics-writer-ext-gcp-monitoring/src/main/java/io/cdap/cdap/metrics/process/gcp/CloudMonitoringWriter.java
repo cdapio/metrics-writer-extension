@@ -121,6 +121,7 @@ public class CloudMonitoringWriter implements MetricsWriter {
     this.metricsMapping = config.getMetricsMapping();
     this.projectName = metricsWriterContext.getProperties().get(PROJECT);
     this.pollFreqInSeconds = Integer.parseInt(metricsWriterContext.getProperties().get(WRITE_FREQUENCY_SECONDS));
+
     populateAutoFilledMap(metricsWriterContext.getProperties(), metricsWriterContext.getPlatformVersion());
 
     try {
@@ -130,13 +131,34 @@ public class CloudMonitoringWriter implements MetricsWriter {
           .build();
       metricServiceClient = MetricServiceClient.create(metricServiceSettings);
     } catch (Exception ex) {
-      LOG.error(
-        "Exception while creating MetricServiceClient, Metrics will not be sent to Google Cloud Monitoring. ",
-        ex);
+      throw new RuntimeException(
+        "Exception while creating MetricServiceClient, Metrics will not be sent to Google Cloud Monitoring.", ex);
     }
   }
 
   private void populateAutoFilledMap(Map<String, String> properties, String platformVersion) {
+    List<String> errors = new ArrayList<>();
+    if (platformVersion == null || platformVersion.isEmpty()) {
+      errors.add("Missing value for platformVersion. ");
+    }
+    String[] requiredProperties = {PROJECT, ORG_ID, LOCATION, CLUSTER_ID, INSTANCE_ID};
+    for (String requiredProperty : requiredProperties) {
+      if (!properties.containsKey(requiredProperty)) {
+        errors.add("Missing value for " + requiredProperty);
+        continue;
+      }
+      String propertyValue = properties.get(requiredProperty);
+      if (propertyValue == null || propertyValue.isEmpty()) {
+        String errorMessage = "Expected a non empty value for property %s, but got '%s'. ";
+        errors.add(String.format(errorMessage, requiredProperty, propertyValue));
+      }
+    }
+
+    if (!errors.isEmpty()) {
+      Optional<String> allErrors = errors.stream().reduce(String::concat);
+      throw new IllegalArgumentException(allErrors.get());
+    }
+
     autoFilledLabelMap = new HashMap<>();
     autoFilledLabelMap.put(RESOURCE_CONTAINER, properties.get(PROJECT));
     autoFilledLabelMap.put(ORG_ID, properties.get(ORG_ID));
@@ -164,10 +186,10 @@ public class CloudMonitoringWriter implements MetricsWriter {
     try (Reader reader = new FileReader(configFilePath)) {
       return GSON.fromJson(reader, MonitoringConfig.class);
     } catch (Exception ex) {
-      LOG.info(
-        "Exception while loading config from mapping file {}. Metrics will not be sent to Google Cloud Monitoring.",
-        configFilePath, ex);
-      return MonitoringConfig.EMPTY;
+      throw new RuntimeException(
+        "Exception while loading config from mapping file " + configFilePath +
+          ". Metrics will not be sent to Google Cloud Monitoring.",
+        ex);
     }
   }
 
