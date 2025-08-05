@@ -25,6 +25,32 @@
   <version>1.4.0</version>
   <packaging>pom</packaging>
 
+  <description>Extensions for the CDAP Metric Writer.</description>
+  <url>https://github.com/cdapio/metrics-writer-extension</url>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Cask Data</name>
+      <email>cask-dev@googlegroups.com</email>
+      <organization>Cask Data, Inc.</organization>
+      <organizationUrl>http://www.cdap.io</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/cdapio/metrics-writer-extension.git</connection>
+    <developerConnection>scm:git:git@github.com:cdapio/metrics-writer-extension.git</developerConnection>
+    <url>https://github.com/cdapio/metrics-writer-extension.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <properties>
     <cdap.version>6.9.1</cdap.version>
   </properties>
@@ -240,6 +266,23 @@
                     </resource>
                   </resources>
                 </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- GPG signature -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <configuration>
+              <passphrase>${gpg.passphrase}</passphrase>
+              <useAgent>${gpg.useagent}</useAgent>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
               </execution>
             </executions>
           </plugin>
