@@ -25,6 +25,32 @@
   <version>1.4.0</version>
   <packaging>pom</packaging>
 
+  <description>Extensions for the CDAP Metric Writer.</description>
+  <url>https://github.com/cdapio/metrics-writer-extension</url>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Cask Data</name>
+      <email>cask-dev@googlegroups.com</email>
+      <organization>Cask Data, Inc.</organization>
+      <organizationUrl>http://www.cdap.io</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/cdapio/metrics-writer-extension.git</connection>
+    <developerConnection>scm:git:git@github.com:cdapio/metrics-writer-extension.git</developerConnection>
+    <url>https://github.com/cdapio/metrics-writer-extension.git</url>
+    <tag>HEAD</tag>
+  </scm>
+
   <properties>
     <cdap.version>6.9.1</cdap.version>
   </properties>
@@ -240,6 +266,76 @@
                     </resource>
                   </resources>
                 </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <!-- Profile for release. Includes building of source and javadoc jars. -->
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <!-- GPG signature -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>1.5</version>
+            <configuration>
+              <passphrase>${gpg.passphrase}</passphrase>
+              <useAgent>${gpg.useagent}</useAgent>
+            </configuration>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- Source JAR -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>2.2.1</version>
+            <configuration>
+              <excludeResources>true</excludeResources>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-sources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar-no-fork</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <!-- Javadoc jar -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>2.9.1</version>
+            <configuration>
+              <additionalparam>-Xdoclint:none</additionalparam>
+              <failOnError>false</failOnError>
+              <links>
+                <link>http://download.oracle.com/javase/${jee.version}/docs/api/</link>
+              </links>
+              <doctitle>${project.name} ${project.version}</doctitle>
+              <bottom>
+                <![CDATA[Copyright &#169; {currentYear} <a href="http://cdap.io" target="_blank">CDAP</a> Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0" target="_blank">Apache License, Version 2.0</a>.]]>
+              </bottom>
+            </configuration>
+            <executions>
+              <execution>
+                <id>attach-javadoc</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
               </execution>
             </executions>
           </plugin>
