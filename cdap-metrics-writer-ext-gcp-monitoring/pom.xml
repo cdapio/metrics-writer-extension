@@ -57,6 +57,16 @@
 
   <dependencyManagement>
     <dependencies>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>guava</artifactId>
+        <version>33.8.0-jre</version>
+      </dependency>
+      <dependency>
+        <groupId>com.google.guava</groupId>
+        <artifactId>failureaccess</artifactId>
+        <version>1.0.3</version>
+      </dependency>
       <!-- gson 2.8.8 comes from google-cloud-monitoring; 2.8.9 fixes CVE-2022-25647. -->
       <dependency>
         <groupId>com.google.code.gson</groupId>
@@ -86,7 +96,7 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>31.0.1-jre</version>
+      <version>33.8.0-jre</version>
     </dependency>
   </dependencies>
 
