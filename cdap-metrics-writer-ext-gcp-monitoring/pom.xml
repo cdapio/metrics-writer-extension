@@ -55,12 +55,16 @@
     <tag>HEAD</tag>
   </scm>
 
+  <properties>
+    <guava.version>33.8.0-jre</guava.version>
+  </properties>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>com.google.guava</groupId>
         <artifactId>guava</artifactId>
-        <version>33.8.0-jre</version>
+        <version>${guava.version}</version>
       </dependency>
       <dependency>
         <groupId>com.google.guava</groupId>
@@ -96,7 +100,6 @@
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>33.8.0-jre</version>
     </dependency>
   </dependencies>
 
