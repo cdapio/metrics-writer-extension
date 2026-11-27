@@ -71,6 +71,18 @@
         <artifactId>failureaccess</artifactId>
         <version>1.0.3</version>
       </dependency>
+      <!-- gson 2.8.8 comes from google-cloud-monitoring; 2.8.9 fixes CVE-2022-25647. -->
+      <dependency>
+        <groupId>com.google.code.gson</groupId>
+        <artifactId>gson</artifactId>
+        <version>2.8.9</version>
+      </dependency>
+      <!-- protobuf-java 3.18.1 comes from google-cloud-monitoring; 3.25.5 fixes the protobuf CVEs. -->
+      <dependency>
+        <groupId>com.google.protobuf</groupId>
+        <artifactId>protobuf-java</artifactId>
+        <version>3.25.5</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
@@ -83,7 +95,7 @@
     <dependency>
       <groupId>com.google.protobuf</groupId>
       <artifactId>protobuf-java-util</artifactId>
-      <version>3.19.1</version>
+      <version>3.25.5</version>
     </dependency>
     <dependency>
       <groupId>com.google.guava</groupId>
